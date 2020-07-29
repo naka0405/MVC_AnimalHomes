@@ -1,0 +1,47 @@
+﻿@*@model AnimalHomes.Models.GetAllAnimalViewModel*@
+@*@model AnimalHomes.Models.GetAllGeneralModel*@
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Choose Entity</h2>
+<p>
+    @Html.ActionLink("All animals", "GetAllAnimals", "AnimalHomes")
+</p>
+
+<p>
+    @Html.ActionLink("All houses", "GetAllHouses", "AnimalHomes")
+</p>
+
+<button type="button" class="but_animals" onclick="location.href='@Url.Action("GetAllAnimals", "AnimalHomes")'">Get all animals</button>
+@**@
+
+<button type="button" class="but_houses" onclick="location.href='@Url.Action("GetAllHouses", "AnimalHomes")'">Get all houses</button>
+
+<div>
+    <div class="partialView">
+        @Html.Action("GetGeneralPartialView")
+        @*output animals, because animalModel got in Action*@
+    </div>
+    <div class="partialView">
+        @Html.Action("GetHousesPartialView")
+        @*output houses, because houseModel got in Action*@
+    </div>
+
+    @*<div>
+            @{ Html.RenderPartial("GetGeneralPartialView");}
+            //примет модель вью индекс
+        </div>*@
+</div>
+
+@section scripts{
+    <script src="@Url.Content("~/Scripts/AnimalHomes/Index.js")"></script>
+}
+@section Botton {
+    <div class="view">
+        <h2>Секция кнопки DarkMode</h2>
+      <button type="button" class="darkMode">DarkModeSection </button>
+    </div>
+}
+
+

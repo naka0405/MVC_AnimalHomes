@@ -1,0 +1,6 @@
+﻿@model AnimalHomes.Models.GetAllGeneralModel
+
+<p></p>
+<h4> PartialView </h4>
+@foreach (var an in Model.ListGeneralModels)
+{ <div>@an.Id| Name:  @an.Name </div>  }

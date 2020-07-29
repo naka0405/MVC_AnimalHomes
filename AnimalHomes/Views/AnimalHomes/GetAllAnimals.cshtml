@@ -1,0 +1,22 @@
+﻿@model AnimalHomes.Models.GetAllAnimalViewModel
+@{
+    ViewBag.Title = "AllAnimals";
+}
+
+<h2>AllAnimals</h2>
+<div>
+    @foreach (var x in Model.Animals)
+    {
+        <div>@x.Id&emsp;&emsp;Name: @x.Name&emsp;&emsp;Age: @x.Age&emsp;&emsp;House: @x.AnimalHouse.Name</div> @**@
+    }
+</div>
+@section scripts{
+    <script src="@Url.Content("~/Scripts/AnimalHomes/Index.js")"></script>}
+    @section Botton {
+        <div class="view">
+            <h2>Секция кнопки DarkMode</h2>
+            <button type="button" class="darkMode">DarkModeSection </button>
+        </div>
+    }
+
+
