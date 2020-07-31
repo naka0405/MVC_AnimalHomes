@@ -1,32 +1,19 @@
 ﻿using AnimalHomes.Models;
 using AutoMapper;
 using BuisnessLogic;
+using BuisnessLogic.Managers;
 using BuisnessLogic.Models;
+using DataAccess.Models;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
 namespace AnimalHomes.Controllers
 {
-    //public class EquationController : Controller
-    //{
-    //    private readonly EquationManager _equationManager;
-    //    private readonly Mapper _mapper;
-    //    public EquationController()
-    //    {
-    //        _equationManager = new EquationManager();
-    //        var config = new MapperConfiguration(x =>
-    //        {
-    //            x.CreateMap<InputDataBL, InputData>();
-    //            x.CreateMap<InputData, InputDataBL>();
-    //            x.CreateMap<EquationBL, EquationPostModel>();
-    //        });
-    //        _mapper = new Mapper(config);
-    //    }
-
-    
         public class AnimalHomesController : Controller
     {
         private readonly HouseManager _houseManager;
@@ -50,13 +37,16 @@ namespace AnimalHomes.Controllers
         }
 
         // GET: AnimalHomes
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            //var allHousesModel = _houseManager.GetAllHouses();
-            //var allHousesView = _mapper.Map<List<GeneralModel>>(allHousesModel);
-            //var newViewModel = new GetAllGeneralModel();
-            //newViewModel.ListGeneralModels = allHousesView;
-
+            var userManager = HttpContext.GetOwinContext().GetUserManager<EmployeeManager>();
+            var createUser = await userManager.CreateAsync(new Employee
+            {
+                LastName = "Julia",
+                Email = "Julia@gmail.com",
+                UserName = "Juli",
+                BirthDate=new DateTime(1985,25,07)
+            }, "123456789");
             return View();
         }
 

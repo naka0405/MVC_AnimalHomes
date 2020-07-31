@@ -1,4 +1,5 @@
 ﻿using DataAccess.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public class AnimalHomesContext:DbContext
+    public class AnimalHomesContext:IdentityDbContext<Employee>//:DbContext
     {
         public AnimalHomesContext():base("Connect")
         {
@@ -17,5 +18,6 @@ namespace DataAccess
 
         public DbSet<Animal> Animals { get; set; }
         public DbSet<House> Houses { get; set; }
+       // public DbSet<Employee> Employees { get; set; }
     }
 }

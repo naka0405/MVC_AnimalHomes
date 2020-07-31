@@ -9,10 +9,10 @@ namespace AnimalHomes.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<AnimalViewModel> Animals { get; set; }
-        public HouseViewModel()
-        {
-            Animals = new List<AnimalViewModel>();
-        }
+        //public ICollection<AnimalViewModel> Animals { get; set; }
+        //public HouseViewModel()
+        //{
+        //    Animals = new List<AnimalViewModel>();
+        //}
     }
 }
